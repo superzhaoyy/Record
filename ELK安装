@@ -23,19 +23,28 @@ cd logstash-1.5.0
 vim redis.conf
 在redis.conf中添加
 input {
-    redis {
-      host => "127.0.0.1"
-      port => "6379"
-      data_type => "list"
-      key => "cadvisor"
-      type => "redis-input"
-    }
-   }
- output {
-   elasticsearch {
-   host => "127.0.0.1"
-   }
+  redis {
+    host => "127.0.0.1"
+    port => "6379"
+    data_type => "list"
+    key => "cadvisor"
+    codec => json
   }
+}
+filter {
+  json {
+    source => "message"
+  }
+  date {
+    match => ["time", "yyyy-MM-dd HH:mm:ss"]
+    timezone => "Asia/Shanghai"
+  }
+}
+output {
+  elasticsearch {
+    host => "127.0.0.1"
+  }
+}
 保存退出
 启动logstash
 ./bin/logstash -f redis.conf
