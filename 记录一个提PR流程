@@ -1,0 +1,42 @@
+============================================================================================================================
+
+cadvisor：一个Linux容器的监控工具
+github地址：https://github.com/google/cadvisor
+我添加了对redis支持
+
+http://www.yangzhiping.com/tech/github.html
+为社区开源项目contribute的流程
+
+Fork-->clone自己fork的项目到本地仓库-->提PR-->修改代码-->push到远程仓库-->与社区沟通（继续修改）等待管理员merge or refuse
+               
+
+-----------------------------------------------------------------------------
+遇到的一些坑：
+
+A.最大的坑：GFW
+解决方法：翻墙
+
+B.godep的安装：
+不翻墙的解决方案：http://wiselyman.iteye.com/blog/2171562
+
+C.添加新依赖：github.com/xx/xx
+
+godep restore
+go get  githu.com/xx/xx
+godep save ./...
+
+D.commit 太多，怎么解决：
+
+git rebase 的使用
+
+http://blog.sina.com.cn/s/blog_6240123301018hkh.html
+http://blog.csdn.net/hudashi/article/details/7664631
+
+E.注意社区所使用的go的版本。要和他们一致
+
+-----------------------------------------------------------------------------
+学习：
+go语言的学习：《go语言编程》
+
+
+========================================================================================================================
